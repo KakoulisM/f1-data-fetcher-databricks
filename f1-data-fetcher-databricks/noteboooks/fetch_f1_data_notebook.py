@@ -5,8 +5,10 @@ import time
 from datetime import timedelta
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-
-uri = "mongodb+srv://kakoulisminas:6984770434Ser!@mongocluster.ob8h9qb.mongodb.net/?retryWrites=true&w=majority&appName=MongoCluster"
+username = ""
+password = ""
+clustername = ""
+uri = "mongodb+srv://username:password@mongocluster.ob8h9qb.mongodb.net/?retryWrites=true&w=majority&appName=clustername"
 mongo_client = MongoClient(uri, server_api=ServerApi('1'))
 
 try:
@@ -15,9 +17,10 @@ try:
 except Exception as e:
     print(e)
     exit(1)
-
-mongo_db = mongo_client["f1data"]
-mongo_collection = mongo_db["realtime"]
+collection = ""
+table = ""
+mongo_db = mongo_client["collection"]
+mongo_collection = mongo_db["table"]
 
 def fetch_json(url):
     try:
