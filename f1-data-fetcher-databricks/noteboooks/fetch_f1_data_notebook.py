@@ -5,10 +5,8 @@ import time
 from datetime import timedelta
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
-username = ""
-password = ""
-clustername = ""
-uri = "mongodb+srv://username:password@mongocluster.ob8h9qb.mongodb.net/?retryWrites=true&w=majority&appName=clustername"
+
+uri = dbutils.secrets.get(scope="my-secret-scope", key="mongodb-uri")
 mongo_client = MongoClient(uri, server_api=ServerApi('1'))
 
 try:
